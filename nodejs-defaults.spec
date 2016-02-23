@@ -4,14 +4,14 @@
 
 Name:           %{?scl_prefix}nodejs-defaults
 Version:        1.0.0
-Release:        5%{?dist}
+Release:        7%{?dist}
 Summary:        A simple one level options merge utility
 License:        MIT
 Group:          Development/Languages/Other
 Url:            https://github.com/tmpvar/defaults
 Source:         http://registry.npmjs.org/defaults/-/defaults-%{version}.tgz
 BuildRequires:  %{scl}
-BuildRequires:	%{scl_prefix}runtime
+BuildRequires:	%{?scl_prefix}runtime
 BuildRoot:      %{_tmppath}/%{pkg_name}-%{version}-build
 BuildArch:      noarch
 ExclusiveArch:  %{ix86} x86_64 %{arm} noarch
@@ -37,8 +37,9 @@ cp -pr package.json index.js \
 %{nodejs_sitelib}/defaults
 
 %changelog
-* Tue Jul 21 2015 Tomas Hrcka <thrcka@redhat.com> - 1.0.0-5
-- rebuilt
+* Tue Feb 16 2016 Zuzana Svetlikova <zsvetlik@redhat.com> - 1.0.0-7
+- Use macro in -runtime dependency
+- Rebuilt with updated metapackage
 
 * Tue Jul 21 2015 Tomas Hrcka <thrcka@redhat.com>
 - Add missing build requires.
